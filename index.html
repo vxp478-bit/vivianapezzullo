@@ -499,26 +499,42 @@ function checkAnswers() {
 
 </body>
 
-<script>
+
+  
+<button onclick="downloadCSV()">Télécharger tout le rapport</button>
+
+  <script>
 function downloadCSV() {
-  // Collect answers from BOTH exercises
+  const studentName = document.getElementById("studentName").value || "Étudiant";
+
+  // Prepare CSV header
   const data = [
-    ["Question", "User Answer", "Correct Answer"]
+    ["Nom de l'étudiant", studentName],
+    [],
+    ["Exercice: Subjonctif ou Indicatif"]
   ];
 
-  // Subjonctif ou Indicatif
+  // Exercise 1: Subjonctif ou Indicatif
   const answersSI = {
     si1:"S", si2:"I", si3:"S", si4:"I", si5:"S",
     si6:"I", si7:"S", si8:"S", si9:"I", si10:"S"
   };
 
+  let scoreSI = 0;
+  data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
   for (let key in answersSI) {
     let user = document.getElementById(key).value || "";
     let correct = answersSI[key];
+    if(user === correct) scoreSI++;
     data.push([key, user, correct]);
   }
+  data.push(["Score", scoreSI + " / " + Object.keys(answersSI).length]);
+  data.push([]); // Empty line before next exercise
 
-  // Subjonctif (text inputs)
+  // Exercise 2: Complétez avec le subjonctif
+  data.push(["Exercice: Complétez avec le subjonctif"]);
+
   const answersSubj = {
     sub1:"fassiez", sub2:"viennent", sub3:"ait", sub4:"saches",
     sub5:"puisse", sub6:"soit", sub7:"veuillent", sub8:"alliez",
@@ -526,32 +542,40 @@ function downloadCSV() {
     sub12:"soit", sub13:"fassent", sub14:"devienne"
   };
 
+  let scoreSubj = 0;
+  data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
   for (let key in answersSubj) {
     let user = document.getElementById(key).value || "";
     let correct = answersSubj[key];
+    if(user.toLowerCase().trim() === correct) scoreSubj++;
     data.push([key, user, correct]);
   }
 
-  // Convert to CSV string
-  let csvContent = data.map(row => row.join(",")).join("\n");
+  data.push(["Score", scoreSubj + " / " + Object.keys(answersSubj).length]);
+  data.push([]); // Empty line
 
-  // Create blob and URL
+  // Total score
+  const totalPoints = scoreSI + scoreSubj;
+  const totalMax = Object.keys(answersSI).length + Object.keys(answersSubj).length;
+  data.push(["Score total", totalPoints + " / " + totalMax]);
+
+  // Convert to CSV string
+  const csvContent = data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
+
+  // Create blob and download
   const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
 
-  // Create temporary <a> element and trigger download
   const a = document.createElement("a");
   a.href = url;
   a.download = "rapport_exercices.csv";
-  document.body.appendChild(a); // Append to DOM
+  document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a); // Clean up
-  URL.revokeObjectURL(url);     // Release memory
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 </script>
-  
-<button onclick="downloadCSV()">Télécharger tout le rapport</button>
-
   
 </section>
 
