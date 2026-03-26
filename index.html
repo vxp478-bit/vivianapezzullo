@@ -272,35 +272,43 @@
 </body>
 </p>
 
-<!-- SHARED STYLE (add once in your main CSS) -->
+<head>
+<meta charset="UTF-8">
+<title>Exercices - Subjonctif</title>
+
 <style>
-.exercise-card {
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #fff7ed;
+}
+
+/* SAME STYLE FOR BOTH */
+.card {
   background: white;
   border-radius: 16px;
   padding: 25px;
+  margin-bottom: 30px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   border-top: 4px solid #f97316;
-  margin-bottom: 30px;
 }
 
-.exercise-card h3 {
-  margin-top: 0;
+h2, h3 {
   color: #ea580c;
 }
 
-.exercise-card p {
+p {
   margin: 10px 0;
 }
 
-.exercise-card select,
-.exercise-card input {
+input, select {
   padding: 6px;
   margin-left: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-.exercise-card button {
+button {
   margin-top: 15px;
   background: #f97316;
   color: white;
@@ -310,89 +318,138 @@
   cursor: pointer;
 }
 
-.exercise-card button:hover {
+button:hover {
   background: #ea580c;
 }
 </style>
+</head>
+
+<body>
 
 <!-- EXERCISE 1 -->
-<div class="exercise-card">
-  <h3>Subjonctif ou Indicatif ?</h3>
+<div class="card">
+<h3>Subjonctif ou Indicatif ?</h3>
 
-  <form id="quizSI">
+<form id="quizSI">
 
-    <p>1. Je suis contente que…
-      <select id="si1">
-        <option value="">--Choisir--</option>
-        <option value="S">tu viennes (S)</option>
-        <option value="I">tu viens (I)</option>
-      </select>
-    </p>
+<p>1. Je suis contente que…
+<select id="si1">
+<option value="">--Choisir--</option>
+<option value="S">tu viennes (S)</option>
+<option value="I">tu viens (I)</option>
+</select>
+</p>
 
-    <p>2. Il est probable que…
-      <select id="si2">
-        <option value="">--Choisir--</option>
-        <option value="I">il pleut (I)</option>
-        <option value="S">il pleuve (S)</option>
-      </select>
-    </p>
+<p>2. Il est probable que…
+<select id="si2">
+<option value="">--Choisir--</option>
+<option value="I">il pleut (I)</option>
+<option value="S">il pleuve (S)</option>
+</select>
+</p>
 
-    <p>3. Il est possible que…
-      <select id="si3">
-        <option value="">--Choisir--</option>
-        <option value="S">il pleuve (S)</option>
-        <option value="I">il pleut (I)</option>
-      </select>
-    </p>
+<p>3. Il est possible que…
+<select id="si3">
+<option value="">--Choisir--</option>
+<option value="S">il pleuve (S)</option>
+<option value="I">il pleut (I)</option>
+</select>
+</p>
 
-    <p>4. Je sais que…
-      <select id="si4">
-        <option value="">--Choisir--</option>
-        <option value="I">tu as raison (I)</option>
-        <option value="S">tu aies raison (S)</option>
-      </select>
-    </p>
+<p>4. Je sais que…
+<select id="si4">
+<option value="">--Choisir--</option>
+<option value="I">tu as raison (I)</option>
+<option value="S">tu aies raison (S)</option>
+</select>
+</p>
 
-    <p>5. Je doute que…
-      <select id="si5">
-        <option value="">--Choisir--</option>
-        <option value="S">il vienne (S)</option>
-        <option value="I">il vient (I)</option>
-      </select>
-    </p>
+<p>5. Je doute que…
+<select id="si5">
+<option value="">--Choisir--</option>
+<option value="S">il vienne (S)</option>
+<option value="I">il vient (I)</option>
+</select>
+</p>
 
-    <button type="button" onclick="checkSI()">Vérifier</button>
-  </form>
+<p>6. Je pense que…
+<select id="si6">
+<option value="">--Choisir--</option>
+<option value="I">il est prêt (I)</option>
+<option value="S">il soit prêt (S)</option>
+</select>
+</p>
 
-  <p id="resultSI"></p>
+<p>7. Penses-tu que… ?
+<select id="si7">
+<option value="">--Choisir--</option>
+<option value="S">il soit prêt (S)</option>
+<option value="I">il est prêt (I)</option>
+</select>
+</p>
+
+<p>8. Je ne pense pas que…
+<select id="si8">
+<option value="">--Choisir--</option>
+<option value="S">il soit prêt (S)</option>
+<option value="I">il est prêt (I)</option>
+</select>
+</p>
+
+<p>9. J’espère que…
+<select id="si9">
+<option value="">--Choisir--</option>
+<option value="I">tu réussis (I)</option>
+<option value="S">tu réussisses (S)</option>
+</select>
+</p>
+
+<p>10. Je souhaite que…
+<select id="si10">
+<option value="">--Choisir--</option>
+<option value="S">tu réussisses (S)</option>
+<option value="I">tu réussis (I)</option>
+</select>
+</p>
+
+<button type="button" onclick="checkSI()">Vérifier</button>
+</form>
+
+<p id="resultSI"></p>
 </div>
 
 <!-- EXERCISE 2 -->
-<div class="exercise-card">
-  <h3>Complétez avec le subjonctif</h3>
+<div class="card">
+<h3>Complétez avec le verbe au subjonctif</h3>
 
-  <form id="quizSubj">
+<form id="quizSubj">
 
-    <p>1. pour que vous <input id="sub1"> (faire)</p>
-    <p>2. avant que les invités <input id="sub2"> (venir)</p>
-    <p>3. afin que la soupe <input id="sub3"> (avoir)</p>
-    <p>4. pour que tu <input id="sub4"> (savoir)</p>
-    <p>5. pour que tout le monde <input id="sub5"> (pouvoir)</p>
+<p>1. Le chef répète la recette pour que vous <input id="sub1"> (faire)</p>
+<p>2. Nous préparons les ingrédients avant que les invités <input id="sub2"> (venir) dîner.</p>
+<p>3. Il ajoute des épices afin que la soupe <input id="sub3"> (avoir) plus de goût.</p>
+<p>4. Je t’explique la recette pour que tu <input id="sub4"> (savoir) comment préparer la sauce.</p>
+<p>5. Le chef parle lentement pour que tout le monde <input id="sub5"> (pouvoir) comprendre.</p>
+<p>6. Nous attendons jusqu’à ce que le gâteau <input id="sub6"> (être) prêt.</p>
+<p>7. Elle prépare plusieurs plats afin que les invités <input id="sub7"> (vouloir) goûter à tout.</p>
+<p>8. Avant que vous <input id="sub8"> (aller) au marché, vérifiez les ingrédients nécessaires.</p>
+<p>9. Je ferme la cuisine pour que personne ne <input id="sub9"> (prendre) de nourriture avant le dîner.</p>
+<p>10. Je goûte la soupe avant que nous <input id="sub10"> (servir) le dîner.</p>
+<p>11. Bien que vous <input id="sub11"> (avoir) peu de temps, vous préparez un bon repas.</p>
+<p>12. Nous mélangeons la sauce pour qu’elle <input id="sub12"> (être) bien homogène.</p>
+<p>13. Le professeur explique la recette afin que les étudiants <input id="sub13"> (faire) le plat chez eux.</p>
+<p>14. Il ajoute du sucre pour que le dessert <input id="sub14"> (devenir) plus doux.</p>
 
-    <button type="button" onclick="checkSubj()">Vérifier</button>
-  </form>
+<button type="button" onclick="checkAnswers()">Vérifier</button>
+</form>
 
-  <p id="resultSubj"></p>
+<p id="resultSubj"></p>
 </div>
 
 <script>
 function checkSI() {
   const answers = {
-    si1: "S",
-    si2: "I",
-    si3: "S",
-    si4: "I",
-    si5: "S"
+    si1:"S", si2:"I", si3:"S", si4:"I", si5:"S",
+    si6:"I", si7:"S", si8:"S", si9:"I", si10:"S"
   };
 
   let score = 0;
@@ -408,16 +465,15 @@ function checkSI() {
   }
 
   document.getElementById("resultSI").innerText =
-    "Score: " + score + " / 5";
+    "Score: " + score + " / 10";
 }
 
-function checkSubj() {
+function checkAnswers() {
   const answers = {
-    sub1: "fassiez",
-    sub2: "viennent",
-    sub3: "ait",
-    sub4: "saches",
-    sub5: "puisse"
+    sub1:"fassiez", sub2:"viennent", sub3:"ait", sub4:"saches",
+    sub5:"puisse", sub6:"soit", sub7:"veuillent", sub8:"alliez",
+    sub9:"prenne", sub10:"servions", sub11:"ayez",
+    sub12:"soit", sub13:"fassent", sub14:"devienne"
   };
 
   let score = 0;
@@ -435,9 +491,11 @@ function checkSubj() {
   }
 
   document.getElementById("resultSubj").innerText =
-    "Score: " + score + " / 5";
+    "Score: " + score + " / 14";
 }
 </script>
+
+</body>
   
 </section>
 
