@@ -501,7 +501,6 @@ function checkAnswers() {
 
 <script>
 function downloadCSV() {
-
   // Collect answers from BOTH exercises
   const data = [
     ["Question", "User Answer", "Correct Answer"]
@@ -536,14 +535,18 @@ function downloadCSV() {
   // Convert to CSV string
   let csvContent = data.map(row => row.join(",")).join("\n");
 
-  // Create file and download
-  const blob = new Blob([csvContent], { type: "text/csv" });
-  const url = window.URL.createObjectURL(blob);
+  // Create blob and URL
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
 
+  // Create temporary <a> element and trigger download
   const a = document.createElement("a");
-  a.setAttribute("href", url);
-  a.setAttribute("download", "rapport_exercices.csv");
+  a.href = url;
+  a.download = "rapport_exercices.csv";
+  document.body.appendChild(a); // Append to DOM
   a.click();
+  document.body.removeChild(a); // Clean up
+  URL.revokeObjectURL(url);     // Release memory
 }
 </script>
   
