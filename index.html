@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibis French</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #fff7ed;
+      color: #333;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ea580c;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #c2410c;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: white;
+      padding: 100px 20px 60px; /* extra top space for navbar */
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #ea580c;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-top: 4px solid #f97316;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .role {
+      color: #c2410c;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#module1">Module 1</a>
+  <a href="#module2">Module 2</a>
+  <a href="#module3">Module 3</a>
+  <a href="#module4">Module 4</a>
+  <a href="#equipe">Équipe</a>
+  <a href="#extra">Extra</a>
+</nav>
+
+<header>
+  <h1>Ibis French</h1>
+</header>
+
+<!-- MODULES -->
+<section id="module1">
+  <h2>Module 1</h2>
+  <p>Contenu du module 1...</p>
+</section>
+
+<section id="module2">
+  <h2>Module 2</h2>
+  <p>Contenu du module 2...</p>
+</section>
+
+<section id="module3">
+  <h2>Module 3</h2>
+  <p>Contenu du module 3...</p>
+</section>
+
+<section id="module4">
+  <h2>Module 4</h2>
+  <p>Contenu du module 4...</p>
+</section>
+
+<!-- ÉQUIPE -->
+<section id="equipe">
+  <h2>Équipe</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="name">Fatima Kane</div>
+      <div class="role">Développeuse</div>
+      <p>Diplômée de l’Université de Miami, spécialisée en informatique et français, intéressée par le design UX.</p>
+    </div>
+
+    <div class="card">
+      <div class="name">Yadiel Cruz</div>
+      <div class="role">Développeur</div>
+      <p>Étudiant en informatique et français à l’Université de Miami.</p>
+    </div>
+
+    <div class="card">
+      <div class="name">Karla Fidalgo</div>
+      <div class="role">Étudiante-consultante</div>
+    </div>
+
+    <div class="card">
+      <div class="name">Dr. Viviana Pezzullo</div>
+      <div class="role">Coordinatrice</div>
+      <p>Responsable du programme de français et spécialiste en humanités numériques.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXTRA -->
+<section id="extra">
+  <h2>Extra</h2>
+  <p>Contenu supplémentaire...</p>
+</section>
+
+</body>
+</html>
