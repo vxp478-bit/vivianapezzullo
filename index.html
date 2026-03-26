@@ -576,6 +576,18 @@ function downloadCSV() {
   URL.revokeObjectURL(url);
 }
 </script>
+
+function sendToGoogleForm() {
+  const formUrl = "https://docs.google.com/forms/d/e/1KOJ-vtRmDZPsyVZovautVUzkvmAh3IQ8ZyrSRDQX4_c/formResponse";
+
+  const data = new URLSearchParams();
+  data.append("entry.1234567890", document.getElementById("studentName").value); // student name
+  data.append("entry.2345678901", "SI Exercise score: " + scoreSI); // example
+  data.append("entry.3456789012", "Subj Exercise score: " + scoreSubj);
+
+  fetch(formUrl, { method: "POST", body: data })
+    .then(() => alert("Results sent!"))
+    .catch((err) => console.error(err));
   
 </section>
 
