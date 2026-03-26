@@ -499,6 +499,54 @@ function checkAnswers() {
 
 </body>
 
+<script>
+function downloadCSV() {
+
+  // Collect answers from BOTH exercises
+  const data = [
+    ["Question", "User Answer", "Correct Answer"]
+  ];
+
+  // Subjonctif ou Indicatif
+  const answersSI = {
+    si1:"S", si2:"I", si3:"S", si4:"I", si5:"S",
+    si6:"I", si7:"S", si8:"S", si9:"I", si10:"S"
+  };
+
+  for (let key in answersSI) {
+    let user = document.getElementById(key).value || "";
+    let correct = answersSI[key];
+    data.push([key, user, correct]);
+  }
+
+  // Subjonctif (text inputs)
+  const answersSubj = {
+    sub1:"fassiez", sub2:"viennent", sub3:"ait", sub4:"saches",
+    sub5:"puisse", sub6:"soit", sub7:"veuillent", sub8:"alliez",
+    sub9:"prenne", sub10:"servions", sub11:"ayez",
+    sub12:"soit", sub13:"fassent", sub14:"devienne"
+  };
+
+  for (let key in answersSubj) {
+    let user = document.getElementById(key).value || "";
+    let correct = answersSubj[key];
+    data.push([key, user, correct]);
+  }
+
+  // Convert to CSV string
+  let csvContent = data.map(row => row.join(",")).join("\n");
+
+  // Create file and download
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = window.URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.setAttribute("href", url);
+  a.setAttribute("download", "rapport_exercices.csv");
+  a.click();
+}
+</script>
+  
 <button onclick="downloadCSV()">Télécharger tout le rapport</button>
 
   
