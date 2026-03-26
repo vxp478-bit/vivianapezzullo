@@ -13,7 +13,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #fff7ed;
+      background: #ffffff;
       color: #333;
     }
 
@@ -35,8 +35,6 @@
       text-decoration: none;
       color: #ea580c;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: color 0.2s;
     }
 
     nav a:hover {
@@ -46,13 +44,8 @@
     header {
       background: linear-gradient(135deg, #f97316, #ea580c);
       color: white;
-      padding: 100px 20px 60px; /* extra top space for navbar */
+      padding: 100px 20px 60px;
       text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
     }
 
     section {
@@ -62,10 +55,10 @@
     }
 
     h2 {
-      margin-bottom: 20px;
       color: #ea580c;
     }
 
+    /* CARDS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -80,14 +73,28 @@
       border-top: 4px solid #f97316;
     }
 
-    .name {
-      font-weight: bold;
-    }
-
     .role {
       color: #c2410c;
       font-size: 0.9rem;
       margin-bottom: 10px;
+    }
+
+    input {
+      margin: 5px;
+      padding: 5px;
+    }
+
+    button {
+      background: #f97316;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ea580c;
     }
   </style>
 </head>
@@ -108,281 +115,34 @@
   <h1>Ibis French</h1>
 </header>
 
-<!-- MODULES -->
+<!-- MODULE 1 -->
 <section id="module1">
-  <h2>Module 1</h2>
-  <p><!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Le Subjonctif</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: linear-gradient(120deg, #89f7fe, #66a6ff);
-      color: #333;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    h1, h2 {
-      color: #2c3e50;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .card {
-      background: #f8f9ff;
-      padding: 15px;
-      border-radius: 12px;
-      margin: 15px 0;
-    }
-
-    .example {
-      background: #e6fffa;
-      padding: 10px;
-      border-left: 5px solid #38b2ac;
-      margin: 10px 0;
-      border-radius: 8px;
-    }
-
-    .tip {
-      background: #fff8e1;
-      padding: 10px;
-      border-left: 5px solid #f6ad55;
-      margin: 10px 0;
-      border-radius: 8px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .verbs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .verb-box {
-      background: #f0f4ff;
-      padding: 15px;
-      border-radius: 12px;
-    }
-
-  </style>
-</head>
-<body>
-
-<div class="container">
-  <h1>📚 Le Subjonctif</h1>
+  <h2>Module 1 – Le Subjonctif</h2>
 
   <div class="card">
-    <h2>Qu’est-ce que le subjonctif ?</h2>
-    <p>Le subjonctif est un mode utilisé pour exprimer :</p>
+    <p>Le subjonctif exprime le doute, le souhait ou l’émotion :</p>
     <ul>
-      <li>le doute, le souhait, la volonté → <strong>Je veux que tu viennes.</strong></li>
-      <li>l’émotion, l’opinion, la nécessité → <strong>Je suis content que tu sois là.</strong></li>
-      <li>l’incertitude ou l’hypothèse → <strong>Il est possible qu’il pleuve.</strong></li>
+      <li>Je veux que tu viennes.</li>
+      <li>Je suis content que tu sois là.</li>
+      <li>Il est possible qu’il pleuve.</li>
     </ul>
-  </div>
 
-  <div class="tip">
-    💡 Mode = façon de voir l’action<br>
-    Temps = moment de l’action
+    <p><strong>Formation :</strong> e, es, e, ions, iez, ent</p>
   </div>
 
   <div class="card">
-    <h2>Indicatif vs Subjonctif</h2>
-    <p><strong>Indicatif :</strong> exprime des faits certains.</p>
-    <div class="example">Il pleut aujourd’hui. ✅</div>
+    <h3>Exercice</h3>
 
-    <p><strong>Subjonctif :</strong> exprime des sentiments ou des doutes.</p>
-    <div class="example">Il faut que tu viennes demain. ✅</div>
+    <p>1. pour que vous <input id="q1"> (faire)</p>
+    <p>2. avant que les invités <input id="q2"> (venir)</p>
+    <p>3. afin que la soupe <input id="q3"> (avoir)</p>
+
+    <button onclick="checkAnswers()">Vérifier</button>
+    <p id="result"></p>
   </div>
-
-  <div class="tip">
-    💡 Si c’est un fait réel → indicatif<br>
-    💡 Si c’est un doute / souhait / émotion → subjonctif
-  </div>
-
-  <div class="card">
-    <h2>Attention</h2>
-    <p>Le verbe <strong>espérer</strong> utilise l’indicatif !</p>
-  </div>
-
-  <div class="card">
-    <h2>Conjonctions importantes</h2>
-    <p>On utilise le subjonctif après :</p>
-    <ul>
-      <li>afin que</li>
-      <li>pour que</li>
-      <li>avant que</li>
-      <li>bien que</li>
-      <li>quoique</li>
-      <li>jusqu’à ce que</li>
-      <li>sans que</li>
-    </ul>
-    <div class="example">Je travaille afin que vous puissiez apprendre.</div>
-  </div>
-
-  <div class="card">
-    <h2>Comment former le subjonctif ?</h2>
-    <ul>
-      <li>Prenez la 3ᵉ personne du pluriel (ils/elles) au présent</li>
-      <li>Enlevez <strong>-ent</strong></li>
-      <li>Ajoutez les terminaisons :</li>
-      <li><strong>e, es, e, ions, iez, ent</strong></li>
-    </ul>
-  </div>
-
-  <div class="verbs">
-    <div class="verb-box">
-      <h3>Manger</h3>
-      <p>Je mange</p>
-      <p>Tu manges</p>
-      <p>Il/Elle mange</p>
-      <p>Nous mangions</p>
-      <p>Vous mangiez</p>
-      <p>Ils mangent</p>
-    </div>
-
-    <div class="verb-box">
-      <h3>Écrire</h3>
-      <p>J’écrive</p>
-      <p>Tu écrives</p>
-      <p>Il/Elle écrive</p>
-      <p>Nous écrivions</p>
-      <p>Vous écriviez</p>
-      <p>Ils écrivent</p>
-    </div>
-  </div>
-
-</div>
-
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Exercice - Subjonctif</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    input { width: 120px; margin: 5px; }
-    .correct { color: green; }
-    .incorrect { color: red; }
-  </style>
-</head>
-<body>
-
-<h2>Complétez avec le verbe au subjonctif</h2>
-
-<form id="quiz">
-
-<p>1. Le chef répète la recette pour que vous 
-<input type="text" id="q1"> (faire) le plat correctement.</p>
-
-<p>2. Nous préparons les ingrédients avant que les invités 
-<input type="text" id="q2"> (venir) dîner.</p>
-
-<p>3. Il ajoute des épices afin que la soupe 
-<input type="text" id="q3"> (avoir) plus de goût.</p>
-
-<p>4. Je t’explique la recette pour que tu 
-<input type="text" id="q4"> (savoir) comment préparer la sauce.</p>
-
-<p>5. Le chef parle lentement pour que tout le monde 
-<input type="text" id="q5"> (pouvoir) comprendre.</p>
-
-<p>6. Nous attendons jusqu’à ce que le gâteau 
-<input type="text" id="q6"> (être) prêt.</p>
-
-<p>7. Elle prépare plusieurs plats afin que les invités 
-<input type="text" id="q7"> (vouloir) goûter à tout.</p>
-
-<p>8. Avant que vous 
-<input type="text" id="q8"> (aller) au marché, vérifiez les ingrédients nécessaires.</p>
-
-<p>9. Je ferme la cuisine pour que personne ne 
-<input type="text" id="q9"> (prendre) de nourriture avant le dîner.</p>
-
-<p>10. Je goûte la soupe avant que nous 
-<input type="text" id="q10"> (servir) le dîner.</p>
-
-<p>11. Bien que vous 
-<input type="text" id="q11"> (avoir) peu de temps, vous préparez un bon repas.</p>
-
-<p>12. Nous mélangeons la sauce pour qu’elle 
-<input type="text" id="q12"> (être) bien homogène.</p>
-
-<p>13. Le professeur explique la recette afin que les étudiants 
-<input type="text" id="q13"> (faire) le plat chez eux.</p>
-
-<p>14. Il ajoute du sucre pour que le dessert 
-<input type="text" id="q14"> (devenir) plus doux.</p>
-
-<button type="button" onclick="checkAnswers()">Vérifier</button>
-
-</form>
-
-<h3 id="result"></h3>
-
-<script>
-function checkAnswers() {
-  const answers = {
-    q1: "fassiez",
-    q2: "viennent",
-    q3: "ait",
-    q4: "saches",
-    q5: "puisse",
-    q6: "soit",
-    q7: "veuillent",
-    q8: "alliez",
-    q9: "prenne",
-    q10: "servions",
-    q11: "ayez",
-    q12: "soit",
-    q13: "fassent",
-    q14: "devienne"
-  };
-
-  let score = 0;
-
-  for (let key in answers) {
-    let userAnswer = document.getElementById(key).value.toLowerCase().trim();
-    if (userAnswer === answers[key]) {
-      score++;
-      document.getElementById(key).style.borderColor = "green";
-    } else {
-      document.getElementById(key).style.borderColor = "red";
-    }
-  }
-
-  document.getElementById("result").innerHTML =
-    "Score: " + score + " / 14";
-}
-</script>
-
-</body>
-</html>
-</p>
 </section>
 
+<!-- MODULES -->
 <section id="module2">
   <h2>Module 2</h2>
   <p>Contenu du module 2...</p>
@@ -403,30 +163,28 @@ function checkAnswers() {
   <h2>Équipe</h2>
 
   <div class="grid">
-
     <div class="card">
-      <div class="name">Fatima Kane</div>
+      <strong>Fatima Kane</strong>
       <div class="role">Développeuse</div>
-      <p>Diplômée de l’Université de Miami, spécialisée en informatique et français, intéressée par le design UX.</p>
+      <p>Diplômée en informatique et français, intéressée par le design UX.</p>
     </div>
 
     <div class="card">
-      <div class="name">Yadiel Cruz</div>
+      <strong>Yadiel Cruz</strong>
       <div class="role">Développeur</div>
       <p>Étudiant en informatique et français à l’Université de Miami.</p>
     </div>
 
     <div class="card">
-      <div class="name">Karla Fidalgo</div>
+      <strong>Karla Fidalgo</strong>
       <div class="role">Étudiante-consultante</div>
     </div>
 
     <div class="card">
-      <div class="name">Dr. Viviana Pezzullo</div>
+      <strong>Dr. Viviana Pezzullo</strong>
       <div class="role">Coordinatrice</div>
       <p>Responsable du programme de français et spécialiste en humanités numériques.</p>
     </div>
-
   </div>
 </section>
 
@@ -435,6 +193,34 @@ function checkAnswers() {
   <h2>Extra</h2>
   <p>Contenu supplémentaire...</p>
 </section>
+
+<!-- SCRIPT -->
+<script>
+function checkAnswers() {
+  const answers = {
+    q1: "fassiez",
+    q2: "viennent",
+    q3: "ait"
+  };
+
+  let score = 0;
+
+  for (let key in answers) {
+    let input = document.getElementById(key);
+    let userAnswer = input.value.toLowerCase().trim();
+
+    if (userAnswer === answers[key]) {
+      score++;
+      input.style.borderColor = "green";
+    } else {
+      input.style.borderColor = "red";
+    }
+  }
+
+  document.getElementById("result").innerText =
+    "Score: " + score + " / 3";
+}
+</script>
 
 </body>
 </html>
