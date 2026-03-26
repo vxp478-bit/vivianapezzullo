@@ -577,17 +577,54 @@ function downloadCSV() {
 }
 </script>
 
+<input id="studentName" placeholder="Votre nom" style="margin-bottom:15px; padding:8px;">
+
+<button type="button" onclick="sendToGoogleForm()">Envoyer les résultats à Google Form</button>
+
+<script>
 function sendToGoogleForm() {
-  const formUrl = "https://docs.google.com/forms/d/e/1KOJ-vtRmDZPsyVZovautVUzkvmAh3IQ8ZyrSRDQX4_c/formResponse";
+  // Get student name
+  const studentName = document.getElementById("studentName").value.trim();
+  if (!studentName) {
+    alert("Veuillez entrer le nom de l'étudiant !");
+    return;
+  }
 
+  // Calculate scores (reuse your existing functions)
+  let scoreSI = 0;
+  const answersSI = { si1:"S", si2:"I", si3:"S", si4:"I", si5:"S", si6:"I", si7:"S", si8:"S", si9:"I", si10:"S" };
+  for (let key in answersSI) {
+    let val = document.getElementById(key).value;
+    if (val === answersSI[key]) scoreSI++;
+  }
+
+  let scoreSubj = 0;
+  const answersSubj = {
+    sub1:"fassiez", sub2:"viennent", sub3:"ait", sub4:"saches",
+    sub5:"puisse", sub6:"soit", sub7:"veuillent", sub8:"alliez",
+    sub9:"prenne", sub10:"servions", sub11:"ayez",
+    sub12:"soit", sub13:"fassent", sub14:"devienne"
+  };
+  for (let key in answersSubj) {
+    let val = document.getElementById(key).value.toLowerCase().trim();
+    if (val === answersSubj[key]) scoreSubj++;
+  }
+
+  // Google Form URL (replace with your Form's "action URL")
+  const formUrl = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
+
+  // Map your Form fields (replace entry.XXXX with your field IDs)
   const data = new URLSearchParams();
-  data.append("entry.1234567890", document.getElementById("studentName").value); // student name
-  data.append("entry.2345678901", "SI Exercise score: " + scoreSI); // example
-  data.append("entry.3456789012", "Subj Exercise score: " + scoreSubj);
+  data.append("entry.1234567890", studentName);          // Student name field
+  data.append("entry.2345678901", scoreSI);              // Subjonctif/Indicatif score
+  data.append("entry.3456789012", scoreSubj);            // Subjunctive fill-in score
 
+  // Send data via POST
   fetch(formUrl, { method: "POST", body: data })
-    .then(() => alert("Results sent!"))
-    .catch((err) => console.error(err));
+    .then(() => alert("Résultats envoyés !"))
+    .catch(err => console.error(err));
+}
+</script>
   
 </section>
 
