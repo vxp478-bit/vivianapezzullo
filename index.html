@@ -271,6 +271,110 @@
 
 </body>
 </p>
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Exercice - Subjonctif</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { width: 120px; margin: 5px; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+  </style>
+</head>
+<body>
+
+<h2>Complétez avec le verbe au subjonctif</h2>
+
+<form id="quiz">
+
+<p>1. Le chef répète la recette pour que vous 
+<input type="text" id="q1"> (faire) le plat correctement.</p>
+
+<p>2. Nous préparons les ingrédients avant que les invités 
+<input type="text" id="q2"> (venir) dîner.</p>
+
+<p>3. Il ajoute des épices afin que la soupe 
+<input type="text" id="q3"> (avoir) plus de goût.</p>
+
+<p>4. Je t’explique la recette pour que tu 
+<input type="text" id="q4"> (savoir) comment préparer la sauce.</p>
+
+<p>5. Le chef parle lentement pour que tout le monde 
+<input type="text" id="q5"> (pouvoir) comprendre.</p>
+
+<p>6. Nous attendons jusqu’à ce que le gâteau 
+<input type="text" id="q6"> (être) prêt.</p>
+
+<p>7. Elle prépare plusieurs plats afin que les invités 
+<input type="text" id="q7"> (vouloir) goûter à tout.</p>
+
+<p>8. Avant que vous 
+<input type="text" id="q8"> (aller) au marché, vérifiez les ingrédients nécessaires.</p>
+
+<p>9. Je ferme la cuisine pour que personne ne 
+<input type="text" id="q9"> (prendre) de nourriture avant le dîner.</p>
+
+<p>10. Je goûte la soupe avant que nous 
+<input type="text" id="q10"> (servir) le dîner.</p>
+
+<p>11. Bien que vous 
+<input type="text" id="q11"> (avoir) peu de temps, vous préparez un bon repas.</p>
+
+<p>12. Nous mélangeons la sauce pour qu’elle 
+<input type="text" id="q12"> (être) bien homogène.</p>
+
+<p>13. Le professeur explique la recette afin que les étudiants 
+<input type="text" id="q13"> (faire) le plat chez eux.</p>
+
+<p>14. Il ajoute du sucre pour que le dessert 
+<input type="text" id="q14"> (devenir) plus doux.</p>
+
+<button type="button" onclick="checkAnswers()">Vérifier</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+function checkAnswers() {
+  const answers = {
+    q1: "fassiez",
+    q2: "viennent",
+    q3: "ait",
+    q4: "saches",
+    q5: "puisse",
+    q6: "soit",
+    q7: "veuillent",
+    q8: "alliez",
+    q9: "prenne",
+    q10: "servions",
+    q11: "ayez",
+    q12: "soit",
+    q13: "fassent",
+    q14: "devienne"
+  };
+
+  let score = 0;
+
+  for (let key in answers) {
+    let userAnswer = document.getElementById(key).value.toLowerCase().trim();
+    if (userAnswer === answers[key]) {
+      score++;
+      document.getElementById(key).style.borderColor = "green";
+    } else {
+      document.getElementById(key).style.borderColor = "red";
+    }
+  }
+
+  document.getElementById("result").innerHTML =
+    "Score: " + score + " / 14";
+}
+</script>
+
+</body>
+
+  
 </section>
 
 <section id="module2">
