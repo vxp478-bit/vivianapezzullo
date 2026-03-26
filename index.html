@@ -497,7 +497,138 @@ function checkAnswers() {
 
 </body>
 
+<div class="card">
+  <h3>Les pronoms objets</h3>
 
+  <p>Les pronoms objets sont des mots qui remplacent un nom (personne, chose, lieu) déjà mentionné dans la phrase, afin d’éviter les répétitions.</p>
+
+  <ul>
+    <li>Le</li>
+    <li>Les</li>
+    <li>La</li>
+    <li>Les</li>
+  </ul>
+
+  <p><strong>Pronoms directs (COD)</strong> : remplacent un objet qui reçoit directement l’action du verbe → le, la, les, l’.</p>
+  <p>Exemple: Je mange la pomme → Je la mange.</p>
+
+  <p><strong>Pronoms indirects (COI)</strong> : remplacent un objet introduit par à ou pour → lui, leur.</p>
+  <p>Exemple : Nous écrivons à nos amis → Nous leur écrivons.</p>
+
+  <ul>
+    <li>me / m’ → Il me parle.</li>
+    <li>te / t’ → Je te téléphone.</li>
+    <li>lui → Je lui écris.</li>
+    <li>nous → Il nous explique.</li>
+    <li>vous → Je vous réponds.</li>
+    <li>leur → Je leur donne un conseil.</li>
+    <li>“en” : remplace un complément introduit par de ou une quantité.<br>
+      Exemple : J’achète des pommes → J’en achète.<br>
+      Exemple : J’ai besoin de sucre pour le gâteau → j’en ai besoin
+    </li>
+    <li>“y” : remplace un complément de lieu ou un complément introduit par à, dans, sur, chez…<br>
+      Exemple : Je vais à Paris → J’y vais.<br>
+      Exemple : Je réponds à l’annonce → j’y réponds
+    </li>
+  </ul>
+
+  <p><strong>Attention :</strong> Quand on utilise le passé composé avec l’auxiliaire avoir, le participe passé s’accorde en genre et en nombre avec le COD si celui-ci est placé avant le verbe.<br>
+  Les pommes que j’ai mangées → les pommes = féminin pluriel → participe passé mangées</p>
+
+  <h3>Exercice : Complétez avec les pronoms objets</h3>
+  <p>Complète ce paragraphe sur la Nouvelle Cuisine avec les pronoms objets directs et indirects (le, la, les, lui, leur, y, en)</p>
+
+  <form id="exercisePronoms">
+    <p>1. Dans les années 1970, plusieurs chefs français créent la Nouvelle Cuisine. Ils veulent moderniser la cuisine traditionnelle et ils 
+    <select id="p1">
+      <option value="">--Choisir--</option>
+      <option value="la">la</option>
+      <option value="lui">lui</option>
+      <option value="leur">leur</option>
+    </select> transforment complètement.</p>
+
+    <p>2. Les chefs commencent à utiliser des ingrédients frais et ils 
+    <select id="p2">
+      <option value="">--Choisir--</option>
+      <option value="les">les</option>
+      <option value="leur">leur</option>
+      <option value="y">y</option>
+    </select> préparent avec beaucoup de créativité.</p>
+
+    <p>3. Ils expérimentent avec des nouvelles techniques et ils 
+    <select id="p3">
+      <option value="">--Choisir--</option>
+      <option value="les">les</option>
+      <option value="leur">leur</option>
+      <option value="en">en</option>
+    </select> utilisent beaucoup pour innover les préparations traditionnelles.</p>
+
+    <p>4. La cuisine classique, au contraire, utilise souvent des sauces riches et des préparations plus longues. Les chefs traditionnels 
+    <select id="p4">
+      <option value="">--Choisir--</option>
+      <option value="y">y</option>
+      <option value="en">en</option>
+      <option value="leur">leur</option>
+    </select> consacrent beaucoup de temps.</p>
+
+    <p>5. Dans la Nouvelle Cuisine, les chefs préfèrent la simplicité. Ils 
+    <select id="p5">
+      <option value="">--Choisir--</option>
+      <option value="leur">leur</option>
+      <option value="y">y</option>
+      <option value="en">en</option>
+    </select> donnent plus de place aux légumes frais et aux produits de saison.</p>
+
+    <p>6. Les critiques gastronomiques parlent beaucoup de ce mouvement et ils 
+    <select id="p6">
+      <option value="">--Choisir--</option>
+      <option value="y">y</option>
+      <option value="en">en</option>
+      <option value="leur">leur</option>
+    </select> écrivent souvent dans les journaux de l'époque.</p>
+
+    <p>7. Aujourd’hui encore, de nombreux chefs admirent cette révolution culinaire et ils 
+    <select id="p7">
+      <option value="">--Choisir--</option>
+      <option value="la">la</option>
+      <option value="le">le</option>
+      <option value="leur">leur</option>
+    </select> considèrent comme une étape importante de la gastronomie française.</p>
+
+    <button type="button" onclick="checkPronoms()">Vérifier</button>
+  </form>
+
+  <p id="resultPronoms"></p>
+</div>
+
+<script>
+function checkPronoms() {
+  const answers = {
+    p1: "la",
+    p2: "les",
+    p3: "en",
+    p4: "leur",
+    p5: "leur",
+    p6: "y",
+    p7: "la"
+  };
+
+  let score = 0;
+
+  for (let key in answers) {
+    let select = document.getElementById(key);
+    if (select.value === answers[key]) {
+      score++;
+      select.style.borderColor = "green";
+    } else {
+      select.style.borderColor = "red";
+    }
+  }
+
+  document.getElementById("resultPronoms").innerText =
+    "Score: " + score + " / 7";
+}
+</script>
   
 <button onclick="downloadCSV()">Télécharger tout le rapport</button>
 
