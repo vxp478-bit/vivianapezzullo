@@ -272,6 +272,8 @@
 </body>
 </p>
 
+<input id="studentName" placeholder="Votre nom" style="margin-bottom:15px; padding:8px;">
+  
 <head>
 <meta charset="UTF-8">
 <title>Exercices - Subjonctif</title>
@@ -496,6 +498,87 @@ function checkAnswers() {
 </script>
 
 </body>
+
+<script>
+function downloadCSV() {
+
+  const name = document.getElementById("studentName").value || "Anonyme";
+  const date = new Date().toLocaleString();
+
+  let data = [];
+
+  // HEADER INFO
+  data.push(["Nom", name]);
+  data.push(["Date", date]);
+  data.push([]);
+
+  // TABLE HEADER
+  data.push(["Exercice", "Question", "Réponse Étudiant", "Bonne Réponse", "Résultat"]);
+
+  // ===== EXERCISE 1 =====
+  const answersSI = {
+    si1:"S", si2:"I", si3:"S", si4:"I", si5:"S",
+    si6:"I", si7:"S", si8:"S", si9:"I", si10:"S"
+  };
+
+  let scoreSI = 0;
+
+  for (let key in answersSI) {
+    let user = document.getElementById(key).value || "";
+    let correct = answersSI[key];
+
+    let result = (user === correct) ? "Correct" : "Incorrect";
+    if (result === "Correct") scoreSI++;
+
+    data.push(["Indicatif/Subjonctif", key, user, correct, result]);
+  }
+
+  data.push([]);
+  data.push(["Score Exercice 1", scoreSI + " / 10"]);
+  data.push([]);
+
+  // ===== EXERCISE 2 =====
+  const answersSubj = {
+    sub1:"fassiez", sub2:"viennent", sub3:"ait", sub4:"saches",
+    sub5:"puisse", sub6:"soit", sub7:"veuillent", sub8:"alliez",
+    sub9:"prenne", sub10:"servions", sub11:"ayez",
+    sub12:"soit", sub13:"fassent", sub14:"devienne"
+  };
+
+  let scoreSubj = 0;
+
+  for (let key in answersSubj) {
+    let user = (document.getElementById(key).value || "").toLowerCase().trim();
+    let correct = answersSubj[key];
+
+    let result = (user === correct) ? "Correct" : "Incorrect";
+    if (result === "Correct") scoreSubj++;
+
+    data.push(["Subjonctif", key, user, correct, result]);
+  }
+
+  data.push([]);
+  data.push(["Score Exercice 2", scoreSubj + " / 14"]);
+  data.push([]);
+
+  // ===== TOTAL =====
+  let total = scoreSI + scoreSubj;
+  let max = 24;
+
+  data.push(["TOTAL", total + " / " + max]);
+
+  // ===== CONVERT CSV =====
+  let csvContent = data.map(row => row.join(",")).join("\n");
+
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = window.URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "rapport_etudiant.csv";
+  a.click();
+}
+</script>
   
 </section>
 
