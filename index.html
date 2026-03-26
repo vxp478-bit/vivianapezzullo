@@ -284,6 +284,130 @@
 </head>
 <body>
 
+<div class="card">
+  <h3>Subjonctif ou Indicatif ?</h3>
+  <p>Choisissez la bonne forme du verbe :</p>
+
+  <form id="quizSI">
+
+    <p>1. Je suis contente que…
+      <select id="q1">
+        <option value="">--Choisir--</option>
+        <option value="S">tu viennes (S)</option>
+        <option value="I">tu viens (I)</option>
+      </select>
+    </p>
+
+    <p>2. Il est probable que…
+      <select id="q2">
+        <option value="">--Choisir--</option>
+        <option value="I">il pleut (I)</option>
+        <option value="S">il pleuve (S)</option>
+      </select>
+    </p>
+
+    <p>3. Il est possible que…
+      <select id="q3">
+        <option value="">--Choisir--</option>
+        <option value="S">il pleuve (S)</option>
+        <option value="I">il pleut (I)</option>
+      </select>
+    </p>
+
+    <p>4. Je sais que…
+      <select id="q4">
+        <option value="">--Choisir--</option>
+        <option value="I">tu as raison (I)</option>
+        <option value="S">tu aies raison (S)</option>
+      </select>
+    </p>
+
+    <p>5. Je doute que…
+      <select id="q5">
+        <option value="">--Choisir--</option>
+        <option value="S">il vienne (S)</option>
+        <option value="I">il vient (I)</option>
+      </select>
+    </p>
+
+    <p>6. Je pense que…
+      <select id="q6">
+        <option value="">--Choisir--</option>
+        <option value="I">il est prêt (I)</option>
+        <option value="S">il soit prêt (S)</option>
+      </select>
+    </p>
+
+    <p>7. Penses-tu que… ?
+      <select id="q7">
+        <option value="">--Choisir--</option>
+        <option value="S">il soit prêt (S)</option>
+        <option value="I">il est prêt (I)</option>
+      </select>
+    </p>
+
+    <p>8. Je ne pense pas que…
+      <select id="q8">
+        <option value="">--Choisir--</option>
+        <option value="S">il soit prêt (S)</option>
+        <option value="I">il est prêt (I)</option>
+      </select>
+    </p>
+
+    <p>9. J’espère que…
+      <select id="q9">
+        <option value="">--Choisir--</option>
+        <option value="I">tu réussis (I)</option>
+        <option value="S">tu réussisses (S)</option>
+      </select>
+    </p>
+
+    <p>10. Je souhaite que…
+      <select id="q10">
+        <option value="">--Choisir--</option>
+        <option value="S">tu réussisses (S)</option>
+        <option value="I">tu réussis (I)</option>
+      </select>
+    </p>
+
+    <button type="button" onclick="checkSI()">Vérifier</button>
+  </form>
+
+  <p id="resultSI"></p>
+</div>
+
+<script>
+function checkSI() {
+  const answers = {
+    q1: "S",
+    q2: "I",
+    q3: "S",
+    q4: "I",
+    q5: "S",
+    q6: "I",
+    q7: "S",
+    q8: "S",
+    q9: "I",
+    q10: "S"
+  };
+
+  let score = 0;
+
+  for (let key in answers) {
+    let select = document.getElementById(key);
+    if (select.value === answers[key]) {
+      score++;
+      select.style.borderColor = "green";
+    } else {
+      select.style.borderColor = "red";
+    }
+  }
+
+  document.getElementById("resultSI").innerText =
+    "Score: " + score + " / 10";
+}
+</script>
+  
 <h2>Complétez avec le verbe au subjonctif</h2>
 
 <form id="quiz">
