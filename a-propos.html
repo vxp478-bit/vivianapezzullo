@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos</title>
+    <style>
+    /* Reset box-sizing so padding doesn't break mobile widths */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial;
+      padding: 20px;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    input {
+      width: 120px;
+      margin: 5px;
+      font-size: 23px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+    }
+
+    h2 {
+      font-size: 1.4em;
+    }
+
+    /* --- ADDED FOR MOBILE FRIENDLINESS (Layout Only) --- */
+    
+    .site-header {
+      display: flex;
+      flex-direction: column; /* Stacks logo and nav vertically on mobile */
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap; /* Allows navigation links to wrap to the next line if they run out of space */
+      gap: 15px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr; /* 1 single column for mobile phones */
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    /* Responsive adjustments for tablets and desktops */
+    @media (min-width: 768px) {
+      .site-header {
+        flex-direction: row; /* Places logo and nav side-by-side on larger screens */
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
+      }
+    }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="site-header">
+        <div class="logo">
+            <a href="index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a>
+        </div>
+        <nav class="header-nav">
+          <a class="nav-item" href="#">à propos</a>
+          <a class="nav-item" href="faq.html">F.A.Q</a>
+          <a class="nav-item" href="contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+        </nav>
+  </header>
+
+  <main>
+    <h1>Équipe</h1>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="name"><h2>Fatima Kane : Cheffe Développeuse</h2></div>
+        <p>Récente diplômée de l’Université de Miami, elle est informaticienne et cofondatrice de l’équipe Ibis French. Elle a obtenu son diplôme en informatique et français (classe 2026) et souhaite désormais poursuivre ses études dans le domaine du design UX, à Atlanta, où elle est basée.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="name"><h2>Yadiel Cruz : Développeur</h2></div>
+        <p>Étudiant en informatique et français à l’Université de Miami.</p>
+      </div>
+
+      <div class="card">
+        <div class="name"><h2>Karla Fidalgo : Étudiante-consultante</h2></div>
+        <p>Karla est diplômée en architecture et en français (classe 2026) et travaille comme architecte. Ses compétences s’étendent également au domaine de la pédagogie, forte de son expérience en tant qu’étudiante-consultante durant trois semestres. Elle a contribué à la conception et à la structuration de l’approche pédagogique de la plateforme, tout en apportant un soutien stratégique à l’équipe.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="name"><h2>Dr. Viviana Pezzullo : Enseignante Coordinatrice</h2></div>
+        <p>Dr. Viviana Pezzullo est l’enseignante coordinatrice du projet Ibis French. Elle dirige le programme de français de premier cycle à l’Université de Miami, où elle s’investit activement dans le développement pédagogique et l’innovation curriculaire.
+        Ses recherches portent sur la culture visuelle, les études culturelles, les humanités numériques et la pédagogie de l’enseignement des langues étrangères. À travers son engagement académique et institutionnel, elle accompagne les étudiants dans la mise en œuvre de projets qui allient réflexion critique, créativité et application concrète des compétences linguistiques.
+        </p>
+      </div>
+
+    </div>
+    <h2><i>Ibis French est une plateforme conçue par les étudiants, pour les étudiants. Elle a été entièrement imaginée et développée par Fatima Kane, avec l’aide de Yadiel Cruz, au printemps 2026 dans le cadre de leur stage en français.
+    L’objectif de la plateforme est d’offrir un accompagnement et des outils de pratique en grammaire française aux étudiants inscrits aux cours de français intermédiaire à l’Université de Miami.</i></h2>
+
+  </main>
+</body>
+</html>
